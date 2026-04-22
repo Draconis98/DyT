@@ -521,7 +521,9 @@ def main(args):
                 args.finetune, map_location="cpu", check_hash=True
             )
         else:
-            checkpoint = torch.load(args.finetune, map_location="cpu")
+            checkpoint = utils.load_torch_checkpoint(
+                args.finetune, map_location="cpu"
+            )
 
         print("Load ckpt from %s" % args.finetune)
         checkpoint_model = None
